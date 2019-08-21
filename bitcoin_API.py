@@ -18,10 +18,10 @@ def get_btc(date = ""):
 # current https://api.coindesk.com/v1/bpi/currentprice.json
 
 #                               NO IF STATEMENTS
-#   use a library to interpret date when imputed 
+#   use a library to interpret date when imputed
 
 
-print(get_btc("ssssssssssssss"))
+print(get_btc(""))
 #     if info == '1':
 #     current_usd = result["bpi"]["USD"]["rate"]
 #     print(current_usd)

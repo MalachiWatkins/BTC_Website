@@ -3,7 +3,7 @@ import requests
 def get_btc(date = ""):
     current_url = "https://api.coindesk.com/v1/bpi/currentprice.json"
     date_url = "https://api.coindesk.com/v1/bpi/historical/close.json"
-    user_date = {'start': date , 'end': '2016-08-17'}
+    user_date = {'start': date , 'end': date}
     if date:
         print("Date found:", date)
         response = requests.get(date_url, params=user_date)
@@ -22,7 +22,7 @@ def get_btc(date = ""):
 #   use a library to interpret date when imputed
 
 
-print(get_btc("2016-08-17"))
+print(get_btc("2015-06-01"))
 #     if info == '1':
 #     current_usd = result["bpi"]["USD"]["rate"]
 #     print(current_usd)

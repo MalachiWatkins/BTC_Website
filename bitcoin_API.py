@@ -15,12 +15,12 @@ def get_btc(date = ""):
         response = requests.get(current_url)
         response_json = response.json()
         result = response_json["bpi"]["USD"]["rate"]
-
+        date = request.args.get('date')
     return result
 
 @app.route('/')
 def index():
-    return get_btc("2015-06-01")
+    return get_btc(date)
 
 
 if __name__ == '__main__':
@@ -28,3 +28,4 @@ if __name__ == '__main__':
 
 #     current_usd = result["bpi"]["USD"]["rate"]
 #       ?start=2016-07-17&end=2016-08-17
+#2013-06-01

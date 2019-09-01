@@ -18,9 +18,8 @@ def index():
         response_json = response.json()
         result = response_json["bpi"]["USD"]["rate"]
 
-
-
-
 print(get_btc("2015-06-01"))
+
+    return get_btc
 #     current_usd = result["bpi"]["USD"]["rate"]
 #       ?start=2016-07-17&end=2016-08-17

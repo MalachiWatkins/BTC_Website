@@ -1,5 +1,6 @@
 import requests
 from flask import Flask
+from flask import request
 
 app = Flask(__name__)
 def get_btc(date = ""):
@@ -15,11 +16,12 @@ def get_btc(date = ""):
         response = requests.get(current_url)
         response_json = response.json()
         result = response_json["bpi"]["USD"]["rate"]
-        date = request.args.get('date')
+
     return result
 
 @app.route('/')
 def index():
+
     return get_btc(date)
 
 

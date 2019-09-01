@@ -2,23 +2,24 @@ import requests
 from flask import Flask
 
 app = Flask(__name__)
+def get_btc(date = ""):
+    current_url = "https://api.coindesk.com/v1/bpi/currentprice.json"
+    date_url = "https://api.coindesk.com/v1/bpi/historical/close.json"
+    user_date = {'start': date , 'end': date}
+if date:
+    print("Date found:", date)
+    response = requests.get(date_url, params=user_date)
+    result = response.json()["bpi"]
+else:
+    print("No date found!")
+    response = requests.get(current_url)
+    response_json = response.json()
+    result = response_json["bpi"]["USD"]["rate"]
 @app.route('/')
 def index():
     return get_btc
 
-    def get_btc(date = ""):
-        current_url = "https://api.coindesk.com/v1/bpi/currentprice.json"
-        date_url = "https://api.coindesk.com/v1/bpi/historical/close.json"
-        user_date = {'start': date , 'end': date}
-    if date:
-        print("Date found:", date)
-        response = requests.get(date_url, params=user_date)
-        result = response.json()["bpi"]
-    else:
-        print("No date found!")
-        response = requests.get(current_url)
-        response_json = response.json()
-        result = response_json["bpi"]["USD"]["rate"]
+
 
 print(get_btc("2015-06-01"))
 

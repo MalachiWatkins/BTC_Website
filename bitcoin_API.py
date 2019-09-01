@@ -16,8 +16,6 @@ def get_btc(date = ""):
         response_json = response.json()
         result = response_json["bpi"]["USD"]["rate"]
 
-    if __name__ == '__main__':
-            app.run(debug=True, host="0.0.0.0")
 
 @app.route('/')
 def index():

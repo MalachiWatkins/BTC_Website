@@ -1,7 +1,6 @@
 import requests
 from flask import Flask
 from flask import request
-
 app = Flask(__name__)
 def get_btc(date = ""):
     current_url = "https://api.coindesk.com/v1/bpi/currentprice.json"
@@ -21,7 +20,7 @@ def get_btc(date = ""):
 
 @app.route('/')
 def index():
-
+    date = request.args.get('date')
     return get_btc(date)
 
 
@@ -30,4 +29,4 @@ if __name__ == '__main__':
 
 #     current_usd = result["bpi"]["USD"]["rate"]
 #       ?start=2016-07-17&end=2016-08-17
-#2013-06-01
+#   http://73.56.66.248:5000/?date=(Date goes here in YYYY-MM-DD form)

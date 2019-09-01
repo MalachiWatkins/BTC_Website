@@ -20,7 +20,7 @@ def get_btc(date = ""):
 
 @app.route('/')
 def index():
-    return print(get_btc("2015-06-01"))
+    return get_btc("2015-06-01")
 
 
 if __name__ == '__main__':

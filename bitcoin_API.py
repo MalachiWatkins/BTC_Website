@@ -7,7 +7,7 @@ def get_btc(date = ""):
     if date:
         print("Date found:", date)
         response = requests.get(date_url, params=user_date)
-        result = response.json()
+        result = response.json()["bpi"]
     else:
         print("No date found!")
         response = requests.get(current_url)

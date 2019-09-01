@@ -21,8 +21,8 @@ def get_btc(date = ""):
 
 @app.route('/')
 def index():
-    return get_btc
-    print(get_btc("2015-06-01"))
+    return print(get_btc("2015-06-01"))
+
 
 if __name__ == '__main__':
         app.run(debug=True, host="0.0.0.0")

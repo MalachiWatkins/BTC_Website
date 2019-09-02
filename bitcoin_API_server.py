@@ -1,12 +1,15 @@
 import requests
-from flask import Flask
+from flask import Flask, render_template , flash
 from flask import request
 import os
 import jinja2
-
+import cgi
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
+jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir))
+
 
 app = Flask(__name__)
+app.secret_key = 'WEIRD!'
 
 def get_btc(date = ""):
     current_url = "https://api.coindesk.com/v1/bpi/currentprice.json"
@@ -29,6 +32,10 @@ def index():
     date = request.args.get('date')
     return get_btc(date)
 
+@app.route('/alert')
+def alert():
+    template = jinja_env.get_template('alert.html')
+    return template.render()
 
 if __name__ == '__main__':
         app.run(debug=True, host="0.0.0.0")

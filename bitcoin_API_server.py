@@ -28,14 +28,10 @@ def get_btc(date = ""):
     return result
 
 @app.route('/')
-def index():
-    date = request.args.get('date')
-    return get_btc(date)
-
-@app.route('/alert')
 def alert():
+    date = request.args.get('date')
     template = jinja_env.get_template('alert.html')
-    return template.render()
+    return template.render(btc = get_btc(date), user = date)
 
 if __name__ == '__main__':
         app.run(debug=True, host="0.0.0.0")
@@ -43,3 +39,7 @@ if __name__ == '__main__':
 #     current_usd = result["bpi"]["USD"]["rate"]
 #       ?start=2016-07-17&end=2016-08-17
 #   http://73.56.66.248:5000/?date=(Date goes here in YYYY-MM-DD form)
+# -----------@app.route('/')----------------
+#            def index():
+#               date = request.args.get('date')
+#               return get_btc(date)

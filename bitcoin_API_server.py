@@ -28,9 +28,9 @@ def get_btc(date = ""):
     return result
 
 @app.route('/')
-def alert():
+def BTC():
     date = request.args.get('date')
-    template = jinja_env.get_template('alert.html')
+    template = jinja_env.get_template('BTC_API.html')
     return template.render(btc = get_btc(date), user = date)
 
 if __name__ == '__main__':

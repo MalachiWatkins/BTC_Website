@@ -1,7 +1,13 @@
 import requests
 from flask import Flask
 from flask import request
+import os
+import jinja2
+
+template_dir = os.path.join(os.path.dirname(__file__), 'templates')
+
 app = Flask(__name__)
+
 def get_btc(date = ""):
     current_url = "https://api.coindesk.com/v1/bpi/currentprice.json"
     date_url = "https://api.coindesk.com/v1/bpi/historical/close.json"

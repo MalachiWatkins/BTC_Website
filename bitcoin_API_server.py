@@ -1,12 +1,12 @@
 import requests
-from flask import Flask, render_template , flash
+from flask import Flask, render_template , flash, url_for
 from flask import request
 import os
 import jinja2
 import cgi
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
+images_dir = os.path.join(os.path.dirname(__file__), 'images')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir))
-
 
 app = Flask(__name__)
 app.secret_key = 'WEIRD!'
@@ -34,6 +34,11 @@ def BTC():
     template = jinja_env.get_template('BTC_API.html')
     return template.render(btc = get_btc(date), user = date)
 
+@app.route('/snakes')
+def snakes():
+    template = jinja_env.get_template('snakes.html')
+    return template.render()
+
 
 if __name__ == '__main__':
         app.run(debug=True, host="0.0.0.0", port=80)
@@ -45,3 +50,4 @@ if __name__ == '__main__':
 #            def index():
 #               date = request.args.get('date')
 #               return get_btc(date)
+# http://sponge.icarus.io/

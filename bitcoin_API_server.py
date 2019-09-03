@@ -36,7 +36,7 @@ def BTC():
 
 
 if __name__ == '__main__':
-        app.run(debug=True, host="0.0.0.0")
+        app.run(debug=True, host="0.0.0.0", port=80)
 
 #     current_usd = result["bpi"]["USD"]["rate"]
 #       ?start=2016-07-17&end=2016-08-17

@@ -1,5 +1,13 @@
 <html>
 <body>
-    <p>Here is the price of Bitcoin for {{ user }}: {{ btc }}</p>
+{% if user == None %}
+<ul>
+  <p>Here is the price of Bitcoin in Dollars for current date: {{ btc }}</p>
+
+{% else %}
+
+  <p>Here is the price of Bitcoin in Dollars for {{ user }}: {{ btc }}</p>
+
+{% endif %}
 </body>
 </html>

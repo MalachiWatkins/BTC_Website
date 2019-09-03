@@ -18,20 +18,22 @@ def get_btc(date = ""):
     if date:
         print("Date found:", date)
         response = requests.get(date_url, params=user_date)
-        result = response.json()["bpi"]
+        result = bpi = response.json()["bpi"]
+        result = list(bpi.keys())[0]
     else:
         print("No date found!")
         response = requests.get(current_url)
-        response_json = response.json()
-        result = response_json["bpi"]["USD"]["rate"]
+        response = bpi = response.json()["bpi"]["USD"]
+        result = list(bpi.keys())[2]
 
-    return result
-
+    return bpi[result]
+#response_json["bpi"]["USD"]["rate"]
 @app.route('/')
 def BTC():
     date = request.args.get('date')
     template = jinja_env.get_template('BTC_API.html')
     return template.render(btc = get_btc(date), user = date)
+
 
 if __name__ == '__main__':
         app.run(debug=True, host="0.0.0.0")

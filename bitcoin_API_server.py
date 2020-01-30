@@ -27,7 +27,7 @@ def get_btc(date = ""):
         result = list(bpi.keys())[2]
 
     return bpi[result]
-#response_json["bpi"]["USD"]["rate"]
+
 @app.route('/')
 def BTC():
     date = request.args.get('date')
@@ -43,11 +43,4 @@ def snakes():
 if __name__ == '__main__':
         app.run(debug=True, host="0.0.0.0", port=80)
 
-#     current_usd = result["bpi"]["USD"]["rate"]
-#       ?start=2016-07-17&end=2016-08-17
-#   http://73.56.66.248:5000/?date=(Date goes here in YYYY-MM-DD form)
-# -----------@app.route('/')----------------
-#            def index():
-#               date = request.args.get('date')
-#               return get_btc(date)
-# http://sponge.icarus.io/
+#   http://sponge.icarus.io/?date=(Date goes here in YYYY-MM-DD form)

@@ -8,18 +8,17 @@ body {
   background: #000000 url(https://wallpaperaccess.com/full/395434.jpg) no-repeat center center;
   background-size: cover;
   border: 2px solid #000000;
-
 }
 </style>
 </head>
 <body>
 {% if user == None %}
 <ul>
-  <p style="font-size:5vw">Here is the price of Bitcoin in Dollars for current date: {{ btc }}</p>
+  <p style="font-size:3vw">Here is the price of Bitcoin in Dollars for current date: {{ btc }}</p>
 
 {% else %}
 
-  <p style="font-size:5vw">Here is the price of Bitcoin in Dollars for {{ user }}: {{ btc }}</p>
+  <p style="font-size:3vw">Here is the price of Bitcoin in Dollars for {{ user }}: {{ btc }}</p>
 
 {% endif %}
 

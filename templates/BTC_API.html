@@ -4,16 +4,21 @@
 
 <style>
 
-body {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  background-image: url("https://wallpaperaccess.com/full/395434.jpg");
-  background-color: #cccccc;
+html, body, #wrapper {
+   height:100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+   border: 0;
+}
+#wrapper td {
+   vertical-align: middle;
+   text-align: center;
 }
 </style>
 </head>
 <body>
+<img src="395434.jpg" alt="BTC" />
 {% if user == None %}
 <ul>
   <p>Here is the price of Bitcoin in Dollars for current date: {{ btc }}</p>

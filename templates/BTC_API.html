@@ -20,8 +20,9 @@
 
 <body>
   <center>
+    {% if date %}
     <span>Date: {{date}}</span>
-
+    {% endif %}
       <p style="font-size:5vw"><font color="white">Here is the price of Bitcoin in Dollars: {{ btc }}</font></p>
 
     <form method="GET">

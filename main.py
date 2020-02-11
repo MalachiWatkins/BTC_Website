@@ -4,6 +4,7 @@ from flask import request
 import os
 import jinja2
 import cgi
+import webbrowser
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 images_dir = os.path.join(os.path.dirname(__file__), 'images')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir))

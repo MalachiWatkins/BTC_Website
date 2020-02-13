@@ -9,20 +9,19 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 images_dir = os.path.join(os.path.dirname(__file__), 'images')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir))
 
-app = Flask(__name__)
+app = Flask(__name__,
+static_folder="BTC_Website/static")
 app.secret_key = 'WEIRD!'
-
+app._static_folder = "BTC_Website/templates"
 def get_btc(date = ""):
     current_url = "https://api.coindesk.com/v1/bpi/currentprice.json"
     date_url = "https://api.coindesk.com/v1/bpi/historical/close.json"
     user_date = {'start': date , 'end': date}
     if date:
-        print("Date found:", date)
         response = requests.get(date_url, params=user_date)
         result = bpi = response.json()["bpi"]
         result = list(bpi.keys())[0]
     else:
-        print("No date found!")
         response = requests.get(current_url)
         response = bpi = response.json()["bpi"]["USD"]
         result = list(bpi.keys())[2]
